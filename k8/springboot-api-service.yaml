@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-api-service
+spec:
+  type: NodePort # Accessible fuera del clúster
+  selector:
+    app: springboot-api
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    nodePort: 30080 # Puerto externo para acceder al servicio Puedes cambiar el NodePort a otro valor si lo deseas, pero debe estar en el rango de 30000-32767
